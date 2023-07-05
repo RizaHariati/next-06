@@ -5,6 +5,13 @@ type Params = {
   params: { postId: string };
 };
 
+export function generateStaticParams() {
+  const posts = getSortedPostsData();
+  return posts.map((post) => ({
+    postId: post.id,
+  }));
+}
+
 export function generateMetadata({ params: { postId } }: Params) {
   const posts = getSortedPostsData();
 
